@@ -1,0 +1,15 @@
+let
+    // Define API endpoint
+    BaseUrl = "https://mlanapi.example.com/data",
+
+    // Add API Key for authentication
+    ApiKey = "your_api_key_here",
+    Headers = [Authorization = "Bearer " & ApiKey],
+
+    // Fetch data from the API
+    ApiResponse = Web.Contents(BaseUrl, [Headers = Headers]),
+
+    // Parse the JSON response
+    JsonResponse = Json.Document(ApiResponse)
+in
+    JsonResponse
